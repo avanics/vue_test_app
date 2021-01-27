@@ -1,7 +1,7 @@
 <template>
 <div>
   <h2>User Data App</h2>
-  <div id = "parentDiv" style="float:left ;margin-top:10px;width:48%" >
+  <div id = "parentDiv" style="float:left ;margin-top:10px;width:48% max-height:100px" >
     
     <table id = "parentTable" class = "table table-striped table-bordered display wrap">
       <thead>
@@ -35,12 +35,26 @@
       </tbody>
     </table>
     </div> 
-    <div id = "child">    
+    <div id = "child" style="height:100px">    
          <ChildUserData :userData = "userData"/> 
     </div>
-    <canvas id="my-chart" width="500" height="300"></canvas>
+    <div class="chart-container">
+    <canvas id="my-chart" width="100" height="50"></canvas>
+    </div>
     </div>
 </template>
+
+<style scoped>
+.chart-container {
+    width: 800px;
+    height:400px
+}
+.table {
+  border: 2px solid black;
+  margin-left:10px;
+}
+
+</style>
 <script>
 import axios from "axios";
 import ChildUserData from './ChildUserData.vue';
@@ -100,9 +114,20 @@ export default {
     datasets: [
       {
         label: 'Users Age',
-        data: [this.countA, this.countB, this.countC, this.countD, this.countE]
+        data: [this.countA, this.countB, this.countC, this.countD, this.countE],
       }
     ]
+  },
+  options: {
+     responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero:true
+            }
+        }]
+    }
   }
 });
       }).catch( error => { console.log(error); });

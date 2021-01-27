@@ -1,7 +1,7 @@
 <template>
   
         
-   <div id = "childDiv" style="float:right ;margin-top:10px;width:50%" >     
+   <div id = "childDiv" style="float:right ;margin-top:10px;width:48%;height:100px; ">     
 <table id = "childTable" class = "table table-striped table-bordered display wrap">     
    <thead>
         <tr>
@@ -31,6 +31,13 @@
     </table>
     </div>
 </template>
+
+<style scoped>
+.table {
+  border: 2px solid black;
+  margin-right:10px
+}
+</style>
 <script>
 
 export default {
