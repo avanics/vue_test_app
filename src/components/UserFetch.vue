@@ -38,34 +38,19 @@
     <div id = "child">    
          <ChildUserData :userData = "userData"/> 
     </div>
-  <div class="container">
-    <line-chart
-      :chartdata="chartdata"
-      :options="options"/>
-  </div>
+  
 
     </div>
 </template>
 <script>
 import axios from "axios";
 import ChildUserData from './ChildUserData.vue';
-import Chart from 'chart.js';
 
 
    
  
 
 export default {
-  extends :Line,
-  props:{
-    chartdata :{
-      type:Object,
-      default:null,
-    },
-    options:{
-      type:Object,
-    }
-  },
   name: "UserFetch",
   components:{ChildUserData},
   data() {
@@ -91,8 +76,7 @@ export default {
       userInfo.company =  this.users[i].company;
       userInfo.phone = this.users[i].phone;
       this.userData.push(userInfo);
-      this.chartdata = this.users;
-      this.renderChart(this.chartdata, this.options)
+      
 
     }
       }).catch( error => { console.log(error); });
