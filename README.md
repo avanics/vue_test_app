@@ -5,6 +5,9 @@ This Vue app fetches data using axios and displays data in 2 tables, one by the 
 ## Project setup
 ```
 npm install
+npm install axios
+npm install vue bootstrap bootstrap-vue
+npm install chart.js --save
 ```
 
 ### Compiles and hot-reloads for development
