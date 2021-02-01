@@ -17,10 +17,10 @@
           {{userInfo.index}}
         </td>
          <td>
-          {{userInfo.company}}
+          {{userInfo.company }}
         </td>
          <td>
-          {{userInfo.eyeColor}}
+          {{userInfo.eyeColor | Uppercase}}
         </td>
         <td>
           {{userInfo.phone}}
@@ -58,6 +58,19 @@ export default {
       ],
   
     }
+    
+    },
+    filters:{
+      Uppercase:function(value)
+      {
+        if(!value)
+        return '';
+        else
+        {
+          value = value.toString();
+          return value.charAt(0).toUpperCase()+value.slice(1);
+        }
+      }
     }
     
       
